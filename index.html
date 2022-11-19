@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Encriptación</title>
+</head>
+<body>
+    <h1 class="title has-text-centered">Encriptación </h1>
+    <div class="container">
+    <div class="container">
+        <div class="columns is-gapless is-multiline is-mobile">
+            <div class="column is-12">
+                <p class="text has-text-centered">Seleccione lo que quiere hacer:</p>
+            </div>
+            
+            <div class="column is-4">
+            </div>
+        <div class="field is-grouped is-grouped-centered column is-4">
+            <select name="selectUsuario" class="form-control" id="selectUsuario" onchange="queHacer(selectUsuario.value)">
+                <option selected>Seleccionar</option>
+                <option value="encriptar">Encriptar</option>
+                <option value="desencriptar">Desencriptar</option>
+              </select>
+        </select> 
+      </div>
+      <div class="column is-4">
+    </div>
+    </div>
+</div>
+    <div id="zona">
+    </div>
+    
+    <script>
+        const queHacer = (selectUsuario) => {
+            document.getElementById("zona").innerHTML = ``
+            switch (selectUsuario) {
+                case "encriptar":
+                    document.getElementById("zona").innerHTML += `<section>
+        <div class="columns is-gapless is-multiline is-mobile">
+            <div class="column is-3">
+            </div>
+            <div class="column is-6">
+                <input class="form-control" type="text" name="token" id="token" placeholder="Ingrese la palabra qué quiere utilizar como Token">
+            </div>
+            <div class="column is-3">
+            </div>
+            <div class="column is-3">
+            </div>
+            <div class="column is-6">
+                <br>
+              <textarea class="textoarea form-control" id="frase" placeholder="Ingrese la frase que quiere encriptar"></textarea>
+            </div>
+            <div class="column is-3">
+            </div>
+            <div class="column is-12">
+                <br>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                      <button onclick="encriptar(token.value, frase.value)" class="btn btn-primary">Encriptar</button>
+                    </p>
+            </div>
+        </div>
+    </section>
+    <div id="fraseEncriptada"></div>
+    </div>`
+                    break;
+
+                case "desencriptar":
+                    document.getElementById("zona").innerHTML += `<section>
+            <div class="columns is-gapless is-multiline is-mobile">
+                <div class="column is-3">
+                </div>
+                <div class="column is-6">
+                    <input class="form-control" type="text" name="token" id="token" placeholder="Ingrese el Token">
+                </div>
+                <div class="column is-3">
+                </div>
+                <div class="column is-3">
+                </div>
+                <div class="column is-6">
+                    <br>
+                  <textarea class="textoarea form-control" id="frase" placeholder="Ingrese la frase encriptada"></textarea>
+                </div>
+                <div class="column is-3">
+                </div>
+                <div class="column is-12">
+                    <br>
+                    <div class="field is-grouped is-grouped-centered">
+                        <button onclick="desencriptar(token.value, frase.value)" class="btn btn-primary">Desencriptar</button>
+                </div>
+            </div>
+        </section>
+        <div id="fraseDesencriptada"></div>
+        </div>`
+                    break;
+            }
+        }
+    </script>
+    <script src="calculo.js"></script>
+</body>
+</html>
+
+

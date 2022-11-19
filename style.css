@@ -1,0 +1,22 @@
+body {
+    margin-top: 3vh;
+}
+
+.title {
+    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.text {
+    font-size: 1.3em;
+    margin-bottom: 2vh;
+}
+
+section {
+    margin: 3vh;
+}
+
+.textoarea {
+    height: 20vh;
+}
